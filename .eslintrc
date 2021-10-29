@@ -1,0 +1,13 @@
+{
+  "extends": "react-app",
+  "globals": {
+    "chrome": "readonly"
+  },
+  "rules": {
+    "camelcase": "error",
+    "no-console": "warn",
+    "no-trailing-spaces": "error",
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"]
+  }
+}
