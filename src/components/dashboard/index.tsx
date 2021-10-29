@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Row, Col } from 'reactstrap';
 import { DashboardContainer } from './styles';
@@ -255,12 +255,6 @@ const Dashboard = () => {
         }
       }
     }
-    const timer = setInterval((): void => {
-      setTime((prevCount: number) => prevCount + 1);
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
   };
 
   const handleUnparkClientVehicleLarge = (vehicleTicket: string): void => {
@@ -287,6 +281,15 @@ const Dashboard = () => {
       )
     );
   };
+
+  useEffect(() => {
+    const timer = setInterval((): void => {
+      setTime((prevCount: number) => prevCount + 1);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [time]);
 
   return (
     <DashboardContainer className="container-fluid">
